@@ -1,26 +1,51 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #900505;
+  --foreground: #712828;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-poppins);
+  --font-mono: var(--font-poppins);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #000000;
+    --foreground: #000000;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(to bottom, #000000, #190f26);
+  min-height: 100vh;
+
+  font-family: poppins, sans-serif;
+  margin: 0;
+  padding: 0;
+  /*@apply min-h-screen bg-gradient-to-b from-black to-purple-950;
+  /* Color Theme Swatches in Hex 
+  .Neon-light-on-wooden-wall-background.-1-hex { color: #D6ACF2; }
+  .Neon-light-on-wooden-wall-background.-2-hex { color: #8850BF; }
+  .Neon-light-on-wooden-wall-background.-3-hex { color: #392259; }
+  .Neon-light-on-wooden-wall-background.-4-hex { color: #5A378C; }
+  .Neon-light-on-wooden-wall-background.-5-hex { color: #190F26; }
+  
+
+  .Neon-light-on-wooden-wall-background.-1-rgba { color: rgba(214, 171, 242, 1); }
+  .Neon-light-on-wooden-wall-background.-2-rgba { color: rgba(135, 80, 191, 1); }
+  .Neon-light-on-wooden-wall-background.-3-rgba { color: rgba(56, 33, 89, 1); }
+  .Neon-light-on-wooden-wall-background.-4-rgba { color: rgba(90, 54, 140, 1); }
+  .Neon-light-on-wooden-wall-background.-5-rgba { color: rgba(24, 14, 38, 1); }
+  
+  
+  .Neon-light-on-wooden-wall-background.-1-hsla { color: hsla(275, 73, 81, 1); }
+  .Neon-light-on-wooden-wall-background.-2-hsla { color: hsla(270, 46, 53, 1); }
+  .Neon-light-on-wooden-wall-background.-3-hsla { color: hsla(264, 44, 24, 1); }
+  .Neon-light-on-wooden-wall-background.-4-hsla { color: hsla(264, 43, 38, 1); }
+  .Neon-light-on-wooden-wall-background.-5-hsla { color: hsla(264, 43, 10, 1); }
+  */
 }
