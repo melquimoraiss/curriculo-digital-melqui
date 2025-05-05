@@ -1,4 +1,6 @@
-import Header from "./components/header";
+import Footer from "../components/footer";
+import Header from "../components/header";
+import HeroSection from "../components/herosection";
 
 export default function Home() {
   return (
@@ -6,7 +8,9 @@ export default function Home() {
       <div className="border-b-1 border-purple-950 ">
         <Header />
       </div>
-      <div className="bg-gradient-purple"></div>
+
+      <HeroSection />
+      <Footer />
     </div>
   );
 }
