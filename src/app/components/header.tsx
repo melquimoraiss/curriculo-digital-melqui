@@ -22,7 +22,7 @@ const Header = () => {
           <img
             src="/logo dino.svg"
             alt="Logo"
-            className="h-20 md:h-12 object-contain"
+            className="h-25 md:h-30 object-contain"
           />
         </div>
 
@@ -53,10 +53,12 @@ const Header = () => {
 
         {/* Language section and hamburger menu icon (visible on mobile) */}
         {/* Seção de idioma e ícone do menu hambúrguer (visível em mobile) */}
-        <div className=" hover:text-purple-500 flex items-center gap-4 md:gap-4">
+        <div className="flex items-center gap-4 md:gap-4">
           {/* Language toggle (visual only, no functionality) */}
           {/* Alternador de idioma (apenas visual, sem funcionalidade) */}
-          <span className="text-sm">EN | PT</span>
+          <span className="text-sm hover:text-purple-500">PT</span>
+          <span className="text-sm"> | </span>
+          <span className="text-sm hover:text-purple-500">EN</span>
           {/* Globe icon (SVG) */}
           {/* Ícone de globo (SVG) */}
           <svg

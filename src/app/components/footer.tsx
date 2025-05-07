@@ -6,18 +6,10 @@ const Footer = () => {
       style={{
         backgroundColor: "#222",
         color: "#fff",
-        padding: "40px 0",
+        padding: "10px 0",
         textAlign: "center",
       }}
     >
-      <div>
-        <p style={{ fontSize: "16px" }}>
-          Criado por <strong>[Melqui Morais]</strong>
-        </p>
-        <p style={{ fontSize: "14px", color: "#aaa" }}>
-          Transformando ideias em experiências visuais e digitais.
-        </p>
-      </div>
       <div style={{ marginTop: "20px" }}>
         <a
           href="mailto:melquimoraiss@gmail.com"
