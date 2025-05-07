@@ -2,7 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
-import LanguageSwitcher from "@/components/languagewswitcher";
+import LanguageSwitcher from "@/components/languageswitcher";
 
 // Header Component
 // Componente Header
@@ -31,22 +31,26 @@ const Header = () => {
         {/* Menu de navegação para desktop (visível apenas em telas médias ou maiores) */}
         <ul className="hidden md:flex gap-6 text-sm md:text-base lg:text-sm font-semibold">
           <li>
-            <a href="#sobre" className="hover:text-purple-500">
+            <a data-traduzir href="#sobre" className="hover:text-purple-500">
               SOBRE
             </a>
           </li>
           <li>
-            <a href="#servicos" className="hover:text-purple-500">
+            <a data-traduzir href="#servicos" className="hover:text-purple-500">
               SERVIÇOS
             </a>
           </li>
           <li>
-            <a href="#trabalhos" className="hover:text-purple-500">
+            <a
+              data-traduzir
+              href="#trabalhos"
+              className="hover:text-purple-500"
+            >
               TRABALHOS
             </a>
           </li>
           <li>
-            <a href="#contato" className="hover:text-purple-500">
+            <a data-traduzir href="#contato" className="hover:text-purple-500">
               CONTATO
             </a>
           </li>
@@ -103,13 +107,13 @@ const Header = () => {
         {/* Side menu links */}
         {/* Links do menu lateral */}
         <nav className="flex flex-col gap-4 p-4 text-sm">
-          <a href="#sobre" className="hover:text-purple-500">
+          <a href="#sobre" data-traduzir className="hover:text-purple-500">
             SOBRE
           </a>
-          <a href="#servicos" className="hover:text-purple-500">
+          <a href="#servicos" data-traduzir className="hover:text-purple-500">
             SERVIÇOS
           </a>
-          <a href="#trabalhos" className="hover:text-purple-500">
+          <a href="#trabalhos" data-traduzir className="hover:text-purple-500">
             TRABALHOS
           </a>
           <a href="#contato" className="hover:text-purple-500">
