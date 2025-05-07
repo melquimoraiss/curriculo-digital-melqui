@@ -44,7 +44,10 @@ const HeroSection = () => {
             ))}
           </motion.h1>
 
-          <p className="font-medium text-xl md:text-2xl text-purple-300 mb-2">
+          <p
+            data-traduzir
+            className="font-medium text-xl md:text-2xl text-purple-300 mb-2"
+          >
             {"< Produtor Multimídia e Dev Full Stack />"}
           </p>
           <p className="text-base md:text-lg text-gray-300">

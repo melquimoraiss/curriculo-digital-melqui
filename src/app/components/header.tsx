@@ -2,6 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
+import LanguageSwitcher from "@/components/languagewswitcher";
 
 // Header Component
 // Componente Header
@@ -56,9 +57,7 @@ const Header = () => {
         <div className="flex items-center gap-4 md:gap-4">
           {/* Language toggle (visual only, no functionality) */}
           {/* Alternador de idioma (apenas visual, sem funcionalidade) */}
-          <span className="text-sm hover:text-purple-500">PT</span>
-          <span className="text-sm"> | </span>
-          <span className="text-sm hover:text-purple-500">EN</span>
+          <LanguageSwitcher />
           {/* Globe icon (SVG) */}
           {/* Ícone de globo (SVG) */}
           <svg
