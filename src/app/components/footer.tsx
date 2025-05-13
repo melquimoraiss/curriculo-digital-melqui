@@ -6,42 +6,72 @@ const Footer = () => {
       style={{
         backgroundColor: "#222",
         color: "#fff",
-        padding: "10px 0",
+        padding: "20px",
         textAlign: "center",
+        width: "90%",
+        maxWidth: "600px",
+        margin: "40px auto 20px",
+        borderRadius: "12px",
+        boxShadow: "0 0 10px rgba(0,0,0,0.3)",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
       }}
     >
-      <div style={{ marginTop: "20px" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          flexWrap: "wrap",
+          gap: "15px",
+          width: "100%",
+        }}
+      >
         <a
           href="mailto:melquimoraiss@gmail.com"
-          style={{ color: "#fff", textDecoration: "none", margin: "0 15px" }}
+          style={{
+            color: "#fff",
+            textDecoration: "none",
+            fontSize: "clamp(12px, 2vw, 16px)",
+          }}
         >
           Email
         </a>
-        {/* <a
-          href="https://www.linkedin.com/in/seuperfil"
-          target="_blank"
-          style={{ color: "#fff", textDecoration: "none", margin: "0 15px" }}
-        >
-          LinkedIn
-        </a> */}
         <a
           href="https://github.com/melquimoraiss"
           target="_blank"
-          style={{ color: "#fff", textDecoration: "none", margin: "0 15px" }}
+          rel="noopener noreferrer"
+          style={{
+            textDecoration: "none",
+            fontSize: "clamp(12px, 2vw, 16px)",
+            color: "#fff",
+          }}
         >
           GitHub
         </a>
         <a
           href="https://www.instagram.com/melqui.moraiss"
           target="_blank"
-          style={{ color: "#fff", textDecoration: "none", margin: "0 15px" }}
+          rel="noopener noreferrer"
+          style={{
+            color: "#fff",
+            textDecoration: "none",
+            fontSize: "clamp(12px, 2vw, 16px)",
+          }}
         >
           Instagram
         </a>
       </div>
-      <div style={{ marginTop: "20px", fontSize: "12px", color: "#aaa" }}>
-        <p>&copy; 2025 [Melqui Morais]. Todos os direitos reservados.</p>
-      </div>
+
+      <p
+        style={{
+          fontSize: "clamp(10px, 1.5vw, 14px)",
+          color: "#aaa",
+          marginTop: "15px",
+        }}
+      >
+        © 2025 [Melqui Morais]. Todos os direitos reservados.
+      </p>
     </footer>
   );
 };

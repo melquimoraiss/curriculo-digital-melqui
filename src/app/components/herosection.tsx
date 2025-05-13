@@ -86,8 +86,9 @@ const HeroSection = () => {
         </motion.div>
 
         <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
+          className="pt-10 md: pt-5 "
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{ scale: 0.8, opacity: 1 }}
           transition={{ type: "spring", stiffness: 120 }}
         >
           <Image

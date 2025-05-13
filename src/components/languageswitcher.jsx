@@ -19,7 +19,6 @@ const LanguageSwitcher = () => {
     setIdioma(novoIdioma);
     localStorage.setItem("idioma", novoIdioma);
 
-    // 🚨 Notifica os outros componentes
     window.dispatchEvent(new Event("idiomaAtualizado"));
 
     traduzirSite(novoIdioma);
