@@ -1,69 +1,85 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import LanguageSwitcher from "@/components/languageswitcher";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
-// Header Component
-// Componente Header
 const Header = () => {
-  // State to control whether the side menu is open or closed
-  // Estado para controlar se o menu lateral está aberto ou fechado
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+
+  // Destacar item de menu conforme a seção visível
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id]");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, []);
+
+  const handleScroll = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+      setMenuOpen(false);
+    }
+  };
+
+  const navItems = [
+    { id: "sobre", label: "SOBRE" },
+    { id: "servicos", label: "SERVIÇOS" },
+    { id: "trabalhos", label: "TRABALHOS" },
+    { id: "contato", label: "CONTATO" },
+  ];
 
   return (
     <>
-      {/* Main navigation bar */}
-      {/* Barra de navegação principal */}
-      <nav className="flex items-center justify-between h-16 px-6 bg-gray-950 text-white relative z-50">
-        {/* LOGO */}
-        <div className="flex items-center h-full">
-          {/* Logo image */}
-          {/* Imagem do logo */}
+      {/* Header com transparência e desfoque */}
+      <nav className="fixed top-0 left-0 w-full flex items-center justify-between h-16 px-6 bg-gray-950 bg-opacity-60  text-white z-50">
+        {/* Logo - volta para herosection */}
+        <div
+          className="flex items-center h-full cursor-pointer"
+          onClick={() => handleScroll("hero")}
+        >
           <img
             src="/logo dino.svg"
             alt="Logo"
-            className="h-25 md:h-30 object-contain"
+            className="h-10 md:h-20 object-contain"
           />
         </div>
 
-        {/* Desktop navigation menu (visible only on medium screens or larger) */}
-        {/* Menu de navegação para desktop (visível apenas em telas médias ou maiores) */}
+        {/* Menu Desktop */}
         <ul className="hidden md:flex gap-6 text-sm md:text-base lg:text-sm font-semibold">
-          <li>
-            <a data-traduzir href="#sobre" className="hover:text-purple-500">
-              SOBRE
-            </a>
-          </li>
-          <li>
-            <a data-traduzir href="#servicos" className="hover:text-purple-500">
-              SERVIÇOS
-            </a>
-          </li>
-          <li>
-            <a
-              data-traduzir
-              href="#trabalhos"
-              className="hover:text-purple-500"
-            >
-              TRABALHOS
-            </a>
-          </li>
-          <li>
-            <a data-traduzir href="#contato" className="hover:text-purple-500">
-              CONTATO
-            </a>
-          </li>
+          {navItems.map(({ id, label }) => (
+            <li key={id}>
+              <button
+                data-traduzir
+                onClick={() => handleScroll(id)}
+                className={`hover:text-purple-500 transition ${
+                  activeSection === id ? "text-purple-500" : ""
+                }`}
+              >
+                {label}
+              </button>
+            </li>
+          ))}
         </ul>
 
-        {/* Language section and hamburger menu icon (visible on mobile) */}
-        {/* Seção de idioma e ícone do menu hambúrguer (visível em mobile) */}
+        {/* Idioma + menu mobile */}
         <div className="flex items-center gap-4 md:gap-4">
-          {/* Language toggle (visual only, no functionality) */}
-          {/* Alternador de idioma (apenas visual, sem funcionalidade) */}
           <LanguageSwitcher />
-          {/* Globe icon (SVG) */}
-          {/* Ícone de globo (SVG) */}
           <svg
             width="24"
             height="24"
@@ -77,8 +93,6 @@ const Header = () => {
           >
             <path d="M12 21a9 9 0 1 0 0-18m0 18a9 9 0 1 1 0-18m0 18c2.761 0 3.941-5.163 3.941-9S14.761 3 12 3m0 18c-2.761 0-3.941-5.163-3.941-9S9.239 3 12 3M3.5 9h17m-17 6h17" />
           </svg>
-          {/* Hamburger menu button (appears only on screens smaller than md) */}
-          {/* Botão do menu hambúrguer (aparece apenas em telas menores que md) */}
           <button
             className="gap-4 md:hidden"
             onClick={() => setMenuOpen(true)}
@@ -89,41 +103,35 @@ const Header = () => {
         </div>
       </nav>
 
-      {/* Side menu (offcanvas), appears when menuOpen is true */}
-      {/* Menu lateral (offcanvas), aparece quando menuOpen é true */}
+      {/* Menu lateral mobile */}
       <div
         className={`fixed top-0 right-0 h-full w-64 bg-black text-white z-50 transform transition-transform duration-300 ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        {/* Side menu header with close button */}
-        {/* Cabeçalho do menu lateral com botão de fechar */}
         <div className="flex justify-between items-center p-4 border-b border-gray-700">
           <span className="text-lg font-semibold">Menu</span>
           <button onClick={() => setMenuOpen(false)} aria-label="Close menu">
             <X size={28} />
           </button>
         </div>
-        {/* Side menu links */}
-        {/* Links do menu lateral */}
         <nav className="flex flex-col gap-4 p-4 text-sm">
-          <a href="#sobre" data-traduzir className="hover:text-purple-500">
-            SOBRE
-          </a>
-          <a href="#servicos" data-traduzir className="hover:text-purple-500">
-            SERVIÇOS
-          </a>
-          <a href="#trabalhos" data-traduzir className="hover:text-purple-500">
-            TRABALHOS
-          </a>
-          <a href="#contato" className="hover:text-purple-500">
-            CONTATO
-          </a>
+          {navItems.map(({ id, label }) => (
+            <button
+              key={id}
+              data-traduzir
+              onClick={() => handleScroll(id)}
+              className={`text-left hover:text-purple-500 ${
+                activeSection === id ? "text-purple-500" : ""
+              }`}
+            >
+              {label}
+            </button>
+          ))}
         </nav>
       </div>
 
-      {/* Overlay to close the menu when clicking outside */}
-      {/* Overlay para fechar o menu ao clicar fora dele */}
+      {/* Overlay */}
       {menuOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-10 z-40"
@@ -134,6 +142,4 @@ const Header = () => {
   );
 };
 
-// Export the Header component for use in other parts of the project
-// Exporta o componente Header para ser usado em outros lugares do projeto
 export default Header;

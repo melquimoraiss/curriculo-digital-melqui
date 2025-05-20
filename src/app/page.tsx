@@ -2,18 +2,21 @@ import AboutSection from "./components/about";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import HeroSection from "./components/herosection";
+import MatrixBackground from "@/components/MatrixBackground";
 
 export default function Home() {
   return (
-    <div>
-      <div className="border-b-1 border-purple-950 ">
+    <div className="">
+      <div className="z-1">
         <Header />
+        <HeroSection />
+        <AboutSection />
+        <Footer />
       </div>
-      <HeroSection />
 
-      <AboutSection />
-
-      <Footer />
+      <div className=" z-0 opacity-20">
+        <MatrixBackground />
+      </div>
     </div>
   );
 }

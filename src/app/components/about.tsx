@@ -7,114 +7,86 @@ const AboutSection: React.FC = () => {
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start end", "center center"], // foco no centro da tela
+    offset: ["start end", "center center"],
   });
 
-  // Animações gerais da seção
-  const sectionOpacity = useTransform(scrollYProgress, [0, 1], [0.4, 1]);
-  const sectionY = useTransform(scrollYProgress, [0, 1], [50, 0]);
-
-  // Valores desordenados para os boxes
-  const boxes = [
-    { id: "historia", initialScale: 0.6, initialY: 80 },
-    { id: "tecnologias", initialScale: 0.4, initialY: 120 },
-    { id: "idiomas", initialScale: 0.5, initialY: 100 },
-    { id: "trajetoria", initialScale: 0.7, initialY: 90 },
-  ];
+  const sectionOpacity = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
+  const sectionY = useTransform(scrollYProgress, [0, 1], [50, 1]);
 
   return (
-    <motion.div
-      ref={sectionRef}
-      style={{ opacity: sectionOpacity, y: sectionY }}
-      className="pt-10 md:pt-5"
-    >
-      <section
-        className="rounded-2xl text-white about-grid"
-        style={{
-          boxShadow: "0 0 10px rgba(0,0,0,0.3)",
-        }}
+    <section id="sobre">
+      <motion.div
+        ref={sectionRef}
+        style={{ opacity: sectionOpacity, y: sectionY }}
+        className="pt-10 md:pt-5"
       >
-        {/* Coluna esquerda */}
-        <div className="left-column">
-          <motion.div
-            className="h-100 box"
-            style={{
-              scale: useTransform(
-                scrollYProgress,
-                [0, 1],
-                [boxes[0].initialScale, 1]
-              ),
-              y: useTransform(scrollYProgress, [0, 1], [boxes[0].initialY, 0]),
-              opacity: useTransform(scrollYProgress, [0.2, 1], [0, 1]),
-            }}
-          >
-            <h2>História</h2>
-            <p>Aqui vai a história do projeto ou da pessoa.</p>
-          </motion.div>
-
-          <div className="bottom-row">
-            <motion.div
-              className="box half"
-              style={{
-                scale: useTransform(
-                  scrollYProgress,
-                  [0, 1],
-                  [boxes[1].initialScale, 1]
-                ),
-                y: useTransform(
-                  scrollYProgress,
-                  [0, 1],
-                  [boxes[1].initialY, 0]
-                ),
-                opacity: useTransform(scrollYProgress, [0.2, 1], [0, 1]),
-              }}
-            >
-              <h3>Tecnologias</h3>
-              <p>React, TypeScript, etc.</p>
-            </motion.div>
-
-            <motion.div
-              className="box half"
-              style={{
-                scale: useTransform(
-                  scrollYProgress,
-                  [0, 1],
-                  [boxes[2].initialScale, 1]
-                ),
-                y: useTransform(
-                  scrollYProgress,
-                  [0, 1],
-                  [boxes[2].initialY, 0]
-                ),
-                opacity: useTransform(scrollYProgress, [0.2, 1], [0, 1]),
-              }}
-            >
-              <h3>Idiomas</h3>
-              <p>Português, Inglês...</p>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Coluna direita */}
-        <motion.div
-          className="right-column"
-          style={{
-            scale: useTransform(
-              scrollYProgress,
-              [0, 1],
-              [boxes[3].initialScale, 1]
-            ),
-            y: useTransform(scrollYProgress, [0, 1], [boxes[3].initialY, 0]),
-            opacity: useTransform(scrollYProgress, [0.2, 1], [0, 1]),
-          }}
+        <section
+          className="rounded-2xl about-box text-white about-grid"
+          style={{ boxShadow: "0 0 10px rgba(0,0,0,0.3)" }}
         >
-          <div className="box full-height">
-            <h2>Trajetória</h2>
-            <p>Aqui você conta a trajetória de forma mais detalhada.</p>
+          {/* Coluna esquerda */}
+          <div className="left-column">
+            <div className="box h-100">
+              <h1 className="ml-2 font-bold text-2xl" data-traduzir>
+                Histórias
+              </h1>
+              <p className="pb-2 ml-2" data-traduzir>
+                Comecei a me interessas por tecnologia por volta dos 10 anos de
+                idade, primeiro fui para o Premiere, Photoshop e AfterEffects,
+                depois comecei a estudar Illustrator.
+              </p>
+            </div>
+
+            <div className="bottom-row">
+              <div className="box half">
+                <div className="box half">
+                  <h1 className="text-2xl font-bold" data-traduzir>
+                    Tecnologias
+                  </h1>
+                  <div className="grid mb-1 grid-cols-2 gap-x-4 gap-y-2">
+                    <h3>• Premiere</h3>
+                    <h3>• AfterEffects</h3>
+                    <h3>• Photoshop</h3>
+                    <h3>• Illustrator</h3>
+                    <h3>• Figma</h3>
+                    <h3>• JavaScript</h3>
+                    <h3>• NodeJs</h3>
+                    <h3>• React</h3>
+                    <h3>• TypeScript</h3>
+                    <h3>• NextJs</h3>
+                  </div>
+                </div>
+              </div>
+
+              <div className="box half">
+                <h3 data-traduzir className="ml-2 font-bold text-2xl">
+                  Idiomas
+                </h3>
+                <p data-traduzir className="ml-2">
+                  • Português nativo
+                </p>
+                <p data-traduzir className="ml-2">
+                  • Inglês técnico
+                </p>
+                <p data-traduzir className="ml-2">
+                  • Espanhol técnico
+                </p>
+              </div>
+            </div>
           </div>
-        </motion.div>
-      </section>
-    </motion.div>
+
+          {/* Coluna direita */}
+          <div className="right-column">
+            <div className="box full-height">
+              <h2 data-traduzir>Trajetória</h2>
+              <p data-traduzir>
+                Aqui você conta a trajetória de forma mais detalhada.
+              </p>
+            </div>
+          </div>
+        </section>
+      </motion.div>
+    </section>
   );
 };
 

@@ -25,6 +25,12 @@ body {
   gap: 20px;
   padding: 20px;
 }
+.about-box {
+  max-width: 80%;
+  max-height: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /* Coluna da esquerda */
 .left-column {
@@ -61,6 +67,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
 }
+
 /*@apply min-h-screen bg-gradient-to-b from-black to-purple-950;
   /* Color Theme Swatches in Hex 
   .Neon-light-on-wooden-wall-background.-1-hex { color: #D6ACF2; }
