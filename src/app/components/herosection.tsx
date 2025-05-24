@@ -55,20 +55,19 @@ const HeroSection = () => {
       className="relative z-0 min-h-screen px-4 py-20 flex items-center justify-center"
     >
       <div className="flex flex-col-reverse md:flex-row items-center justify-between text-white w-full max-w-6xl gap-10">
-        <div className="absolute top-20 left-4 z-40 md:left-10">
+        <div className="md:mt-12 md:absolute md:left-50 md:top-1/4.9 z-40">
           <motion.div
             initial={{ opacity: 0, filter: "blur(10px)" }}
-            className="flex flex-col max-w-xl text-center md:text-left"
             animate={{ opacity: 1, filter: "blur(0px)" }}
             transition={{ duration: 0.6 }}
-            variants={container}
           >
-            <TiltCard className="w-70 md:w-20 mr-50 absolute top-20 rounded-2xl shadow-xl">
-              <div className="flex items-center justify-center flex-row md:flex-col gap-6 backdrop-blur-sm p-3">
+            <TiltCard className="w-full md:w-20 rounded-2xl shadow-xl mx-auto">
+              <div className="flex flex-row md:flex-col items-center justify-center gap-6 backdrop-blur-sm p-3">
                 <a
                   href="https://github.com/melquimoraiss"
                   className="text-white hover:text-[#8850BF] transition-colors transform hover:scale-110 duration-200"
                   aria-label="GitHub"
+                  target="_blank"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -87,6 +86,7 @@ const HeroSection = () => {
                 </a>
                 <a
                   href="https://www.instagram.com/melqui.moraiss"
+                  target="_blank"
                   className="text-white hover:text-[#8850BF] transition-colors transform hover:scale-110 duration-200"
                   aria-label="Instagram"
                 >
@@ -107,9 +107,10 @@ const HeroSection = () => {
                   </svg>
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/seu_usuario"
+                  href="https://www.linkedin.com/in/melqui-moraiss"
                   className="text-white hover:text-[#8850BF] transition-colors transform hover:scale-110 duration-200"
                   aria-label="LinkedIn"
+                  target="_blank"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -131,6 +132,7 @@ const HeroSection = () => {
                   href="https://seusite.com"
                   className="text-white hover:text-[#8850BF] transition-colors transform hover:scale-110 duration-200"
                   aria-label="Website"
+                  target="_blank"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -152,7 +154,6 @@ const HeroSection = () => {
             </TiltCard>
           </motion.div>
         </div>
-
         <div className="max-w-6xl w-full flex flex-col-reverse md:flex-row items-center justify-between gap-10">
           <motion.div
             initial={{ opacity: 0, filter: "blur(10px)" }}

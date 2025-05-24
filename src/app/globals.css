@@ -20,55 +20,111 @@ body {
   margin: 0;
   padding: 0;
 }
-.about-grid {
+.about-container {
   display: flex;
   gap: 20px;
   padding: 20px;
-}
-.about-box {
-  min-width: 80%;
-  min-height: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Coluna da esquerda */
-.left-column {
+.left-content,
+.right-content {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* Coluna da direita */
-.right-column {
+.content-box,
+.highlight-box {
+  background-color: rgba(25, 15, 38, 0.9);
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Estilos específicos para Trajetória e Idiomas */
+.highlight-box.trajectory {
+  border-left: 4px solid #ff4d4d;
+}
+
+.highlight-box.trajectory .highlight-title {
+  color: #ff4d4d;
+}
+
+.highlight-box.languages {
+  border-left: 4px solid #ffcc00;
+}
+
+.highlight-box.languages .highlight-title {
+  color: #ffcc00;
+}
+
+.highlight-box.languages .language-items li {
+  color: #ffeb99;
+}
+
+/* Estilos de tipografia */
+.title-section,
+.highlight-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #e2d9f3;
+}
+
+.description-text {
+  color: #c7b8e0;
+  line-height: 1.6;
+}
+
+/* Grid de tecnologias */
+.tech-grid {
+  display: flex;
+  gap: 30px;
+  margin-top: 15px;
+}
+
+.tech-group {
   flex: 1;
 }
 
-.bottom-row {
-  display: flex;
-  gap: 20px;
+.tech-subtitle {
+  font-size: 1.1rem;
+  color: #a78bfa;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(167, 139, 250, 0.3);
 }
 
-.half {
-  flex: 1;
+.tech-items,
+.language-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.box {
-  background-color: #190f26;
-  padding: 16px;
-  border-radius: 8px;
-  opacity: 0.8;
+.tech-items li {
+  margin-bottom: 8px;
+  color: #d8c3ff;
 }
 
-.full-height {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
+/* Responsividade */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+  }
 
+  .tech-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .highlight-box {
+    border-left-width: 3px;
+  }
+}
 /*@apply min-h-screen bg-gradient-to-b from-black to-purple-950;
   /* Color Theme Swatches in Hex 
   .Neon-light-on-wooden-wall-background.-1-hex { color: #D6ACF2; }
