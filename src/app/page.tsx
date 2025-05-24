@@ -6,7 +6,7 @@ import MatrixBackground from "@/components/MatrixBackground";
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="overflow-x-hidden max-w-screen w-full">
       <div className="z-1">
         <Header />
         <HeroSection />
@@ -14,7 +14,7 @@ export default function Home() {
         <Footer />
       </div>
 
-      <div className=" z-0 opacity-20">
+      <div className=" absolute inset-0 opacity-20 -z-10 pointer-events-none">
         <MatrixBackground />
       </div>
     </div>

@@ -8,7 +8,7 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
-  // Destacar item de menu conforme a seção visível
+  // Detectar seção ativa no scroll
   useEffect(() => {
     const sections = document.querySelectorAll("section[id]");
     const observer = new IntersectionObserver(
@@ -46,9 +46,9 @@ const Header = () => {
 
   return (
     <>
-      {/* Header com transparência e desfoque */}
-      <nav className="fixed top-0 left-0 w-full flex items-center justify-between h-16 px-6 bg-gray-950 bg-opacity-60  text-white z-50">
-        {/* Logo - volta para herosection */}
+      {/* NAVBAR */}
+      <nav className="fixed top-0 left-0 w-full flex items-center justify-between h-16 px-6 bg-black/30 backdrop-blur-md border-[#5A378C] text-white z-50">
+        {/* Logo */}
         <div
           className="flex items-center h-full cursor-pointer"
           onClick={() => handleScroll("hero")}
@@ -61,7 +61,7 @@ const Header = () => {
         </div>
 
         {/* Menu Desktop */}
-        <ul className="hidden md:flex gap-6 text-sm md:text-base lg:text-sm font-semibold">
+        <ul className="hidden md:flex gap-6 text-sm md:text-base font-semibold">
           {navItems.map(({ id, label }) => (
             <li key={id}>
               <button
@@ -94,9 +94,9 @@ const Header = () => {
             <path d="M12 21a9 9 0 1 0 0-18m0 18a9 9 0 1 1 0-18m0 18c2.761 0 3.941-5.163 3.941-9S14.761 3 12 3m0 18c-2.761 0-3.941-5.163-3.941-9S9.239 3 12 3M3.5 9h17m-17 6h17" />
           </svg>
           <button
-            className="gap-4 md:hidden"
+            className="md:hidden z-50"
             onClick={() => setMenuOpen(true)}
-            aria-label="Open menu"
+            aria-label="Abrir menu"
           >
             <Menu size={28} />
           </button>
@@ -111,7 +111,7 @@ const Header = () => {
       >
         <div className="flex justify-between items-center p-4 border-b border-gray-700">
           <span className="text-lg font-semibold">Menu</span>
-          <button onClick={() => setMenuOpen(false)} aria-label="Close menu">
+          <button onClick={() => setMenuOpen(false)} aria-label="Fechar menu">
             <X size={28} />
           </button>
         </div>
@@ -131,10 +131,10 @@ const Header = () => {
         </nav>
       </div>
 
-      {/* Overlay */}
+      {/* Overlay quando o menu estiver aberto */}
       {menuOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-10 z-40"
+          className="fixed inset-0 bg-black bg-opacity-20 z-40"
           onClick={() => setMenuOpen(false)}
         />
       )}
